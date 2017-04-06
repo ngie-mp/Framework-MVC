@@ -16,7 +16,7 @@ $route = str_replace('/', '', $url[0]);
 //$route = $url[0];
 
 foreach ($routes as $key => $value) {
-  if ($key == $route){
+  if ($value['path'] == $route){
     $controller = $value['controller'];
     $action = $value['action'];
     break;

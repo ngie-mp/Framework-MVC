@@ -1,11 +1,13 @@
 <?php
   $routes = array(
-    '' => array(
+    'home' => array(
+      'path' => '',
       'controller' => 'index',
       'action' => 'index'
     ),
-    'hello' => array(
+    'contact' => array(
+      'path' => 'contact',
       'controller' => 'index',
-      'action' => 'hello_world'
+      'action' => 'contact'
     )
   );
