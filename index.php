@@ -4,11 +4,24 @@ define('WEBROOT', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 
 require(ROOT.'Vendor/core/Controllers/Controller.php');
+require(ROOT.'Config/routes.php');
 
-$param = explode('/', $_GET['p']);
-$controller = $param[0];
-$action = $param[1];
-$get_params = (!empty($param[2])) ? $param[2] : "";
+// $param = explode('/', $_GET['p']);
+// $controller = $param[0];
+// $action = $param[1];
+// $get_params = (!empty($param[2])) ? $param[2] : "";
+
+$url = explode('/', $_GET['p']);
+$route = str_replace('/', '', $url[0]);
+//$route = $url[0];
+
+foreach ($routes as $key => $value) {
+  if ($key == $route){
+    $controller = $value['controller'];
+    $action = $value['action'];
+    break;
+  }
+}
 
 $controllerFile = ucfirst($controller).'Controller.php';
 $controllerClassName = ucfirst($controller).'Controller';
@@ -20,7 +33,7 @@ if(is_file('Controllers/'.$controllerFile)){
 
 $controller = new $controllerClassName();
 if(method_exists($controller, $action)){
-  $controller->$action($get_params);
+  $controller->$action();
 }else{
   echo "Error 404";
 }
