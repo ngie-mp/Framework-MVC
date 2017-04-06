@@ -7,7 +7,7 @@
     ),
     'contact' => array(
       'path' => 'contact',
-      'controller' => 'index',
-      'action' => 'contact'
+      'controller' => 'contact',
+      'action' => 'index'
     )
   );
