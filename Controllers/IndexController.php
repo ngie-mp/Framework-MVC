@@ -6,7 +6,7 @@
         $this->render('index');
       }
 
-      public function hello_world($name){
+      public function hello_world(){
         $this->set(array('name' => (!empty($name)) ? $name : "World"));
         $this->render('hello');
       }
