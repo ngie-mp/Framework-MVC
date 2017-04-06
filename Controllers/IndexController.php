@@ -1,13 +1,12 @@
 <?php
   class IndexController extends Controller
   {
-      public function index(){
-        $this->set(array('tuto' => array('nom'=>'test')));
-        $this->render('index');
+      public function index()
+      {
+          $this->render('index', array('PageName' => "Home page"));
       }
 
-      public function hello_world(){
-        $this->set(array('name' => (!empty($name)) ? $name : "World"));
-        $this->render('hello');
+      public function error404(){
+          $this->render('error404');
       }
   }
