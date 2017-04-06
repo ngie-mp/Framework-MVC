@@ -8,3 +8,10 @@
     <h1><?=$PageName?></h1>
   </body>
 </html>
+
+<main>
+  <ul>
+    <li><a href="<?=HtmlHelpers::routeUrl('home')?>">Accueil</a>
+    <li><a href="<?=HtmlHelpers::routeUrl('contact')?>">Contact</a>
+  </ul>
+</main>
